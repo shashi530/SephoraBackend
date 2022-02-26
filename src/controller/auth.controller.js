@@ -5,7 +5,7 @@ const {body,validationResult} = require("express-validator");
 
 const User = require("../model/user.model");
 const newToken = (user)=>{
-        return  jwt.sign({user}, process.env.JWT_SECRET_KEY);
+        return  jwt.sign({user}, "secret");
 }
 
 const register = async(req,res)=>{
