@@ -24,10 +24,6 @@ app.post("/login",login);
 
 
 
-
-
-
-
 passport.serializeUser(function (user, done) {
     done(null, user);
   });
