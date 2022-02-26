@@ -1,5 +1,9 @@
 const express = require("express");
+
+require("dotenv").config();
 const app = express();
+
+const port = process.env.PORT || 3000;
 app.use(express.json());
 const connect = require("./configs/db");
 const {body,validationResult} = require("express-validator");
@@ -61,7 +65,7 @@ passport.serializeUser(function (user, done) {
 app.use("/hairSpray",productController);
 //http://localhost:2266/register
 
-app.listen(2354,async()=>{
+app.listen(port,async()=>{
     try{
         await connect();
         console.log("Started");
