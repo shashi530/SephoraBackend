@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 
 require("dotenv").config();
 const app = express();
@@ -13,6 +14,8 @@ const passport= require('./configs/google-auth');
 
 const {register,login,newToken} = require("./controller/auth.controller");
 const productController = require("./controller/product.controller");
+
+app.use(cors());
 
 app.post("/register",
 body("name").isLength({min:3}).withMessage("Enter Your Correct Name"),
